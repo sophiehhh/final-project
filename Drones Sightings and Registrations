@@ -23,21 +23,25 @@ Our other two data sources were the Census Bureau and the US Bureau of Economic 
 	Further, we tried to incorporate weather statistics, assuming that if a state was known to have more “clear” days per year, they would have more sightings but we could not find an accurate data source that accounted for data that aligned with our other characteristics. We found a data set on the Current Results website, but it was only data for major cities in each state, assuming the amount of sunshine a state usually has in a year. 
 
 3. sources of bias:
-questions asked → 
-we are interested in drone data and the policies that may come with the correlation between registrations and sightings - not everyone is 
-measures used → 
+questions asked:  
+The biggest bias is probably from each of our backgroupd. We are interested in drone data and the policies that may come with the correlation between registrations and sightings, but not everyone is. 
+measures used:  
 we chose to use data sources that aligned with our parameters
-how data gathered → 
+how data gathered: 
 we chose the parameters of the year (2016-2018), how we would measure it (by state) and the data gathered by each website doesn’t have a clear way of how they collected data
-outliers and missing values →
+outliers and missing values: 
 Outliers - when controlling for population, california is still an outlier
 Missing values - people who did not report their sightings and people who did not register their drones
-Interpretation →
+Interpretation: 
 We did not account for a random variable so the significance levels cannot be measured and interpreted 
-Reproducibility →
+Reproducibility: 
 There is no bias in reproducibility because there are no random variables that will change when the code is run each time
-inputs to machine learning algorithms - proxy variables
-The variables that created the entrepreneurial index and income per state that isn’t accounted for in our data set 
+Inputs to machine learning algorithms - proxy variables
+The variables that created the entrepreneurial index and income per state that isn’t accounted for in our data set. 
+
+4. Analysis: 
+We incorperted various models, such as Exploratory data analysis, K-means clusterings and Linear regression to analyze the datasets we got.
+First of all, the analysis of the relations between population and the number of drone sightings shows a significant correlation. 
 
 
 Refrences: 
