@@ -1,0 +1,50 @@
+We are interestd in finding if the number of Unmanned Aircraft Systems (UAS), drones, is correlated to the sightings data we found on the Federal Aviation Administrationconsistent (FAA) with the number of drones registered in per state.
+
+Methodology: 
+1. Cleaning the Data:	
+
+The data for our project came from four separate sources: One (1) US Census State Population (Yrs 2016-2018), One (1) US Census Median Income (Yrs 2016-2018), sixteen (16) Federal Aviation Administration Drone Sightings, Five (5) Federal Aviation Administration Drone Registrations
+
+Data from these URL links (saved online as Microsoft Excel .xlsx files) into an R Markdown file, as well as the necessary R packages (tidyverse, dplyr, stringr, DescTools, etc). The data was then cleaned in R, in order to merge into a consistent format:
+
+The population data and income data (from US Census site) was already in an easy format to read into R with separate rows for each State (as well as District of Columbia). Some minimal cleaning was required, and included indexing certain row/column names, and changing column names for consistency. Also, the syntax of column names was modified using various functions to be a consistent format for merging.  
+
+In regards to dates, they were in various formats (e.g. Jun 1, 2019 or 2019-06-01, or Jun 1, 2019 08:33 or missing) for both of the files. For the drone sightings database, the dates were specific to the day, while the drone registration database was specific to the quarter of the year. Thus, this drove the decision to examine the data primarily from a year-by-year level. 
+
+In regards to locations, the drone registration database was in a City and State format, while the drone registration data was in City, Zip Code and State format. In addition, there was missing City and Zip code data for a chunk of the drone registration data. Since it was difficult to locate population and income data specific to an individual City and Zip Code, the data was summarized primarily at a State level for location.
+ In addition, the locations were in various formats (VIRGINIA, Virginia, VA), which required processing to get in consistent format. Data which contained missing date or location values were removed from the dataset.
+After merging/binding the data, it provided columns for median income, population, drone registration in 2016, drone registration in 2017, drone registration in 2018, drone sightings in 2016, drone registration in 2017, and drone sightings in 2018.
+
+2. Data source descriptions:
+
+We used a variety of sources, all websites, to accrue data sets of our characteristics that prompted us to test the correlation of Unmanned Aircraft Systems (UAS) sightings in each state to the amount of registrations in the same state from 2016 to 2018; UASs are commonly known as drones. 
+Our main data source was the Federal Aviation Administration (FAA) website that gave us the data sets of the total number of reported sightings, broken down to the very day and time of the report, and the total number of new registrations of UASs in each state, by the year. We combined the daily data of reported sightings and accounted for the yearly total in our data set in R, so we could have it at the same standard as registrations. We also combined “hobbyist” and “non-hobbyist” registrations for the purpose of our analysis. Hobbyist registrations are covered under Section 366 of the FAA website, and is for recreational flyers and modeler community-based organizations; the individual registered is considered a “modeler” and must be 13 years of age and a US citizen or legal permanent resident. Under Part 107 of Section 366, certified remote pilots, including commercial operators, must register.
+Our other two data sources were the Census Bureau and the US Bureau of Economic Analysis (BEA). The Census data sets measured the income and population of the United States, at the state level while the BEA accounted for population and income per county, by state. Once we started to look at different characteristics, we found that there was a significance between the number of sightings and the number of entrepreneurial activity in the United States per state; we used the Kauffman Indicators of Entrepreneurial website and their 2018 index level.
+	Further, we tried to incorporate weather statistics, assuming that if a state was known to have more “clear” days per year, they would have more sightings but we could not find an accurate data source that accounted for data that aligned with our other characteristics. We found a data set on the Current Results website, but it was only data for major cities in each state, assuming the amount of sunshine a state usually has in a year. 
+
+3. sources of bias:
+questions asked → 
+we are interested in drone data and the policies that may come with the correlation between registrations and sightings - not everyone is 
+measures used → 
+we chose to use data sources that aligned with our parameters
+how data gathered → 
+we chose the parameters of the year (2016-2018), how we would measure it (by state) and the data gathered by each website doesn’t have a clear way of how they collected data
+outliers and missing values →
+Outliers - when controlling for population, california is still an outlier
+Missing values - people who did not report their sightings and people who did not register their drones
+Interpretation →
+We did not account for a random variable so the significance levels cannot be measured and interpreted 
+Reproducibility →
+There is no bias in reproducibility because there are no random variables that will change when the code is run each time
+inputs to machine learning algorithms - proxy variables
+The variables that created the entrepreneurial index and income per state that isn’t accounted for in our data set 
+
+
+Refrences: 
+
+“FOIA Library.” Federal Aviation Administration. Accessed January 9, 2020. https://www.faa.gov/foia/electronic_reading_room/.
+Kauffman Indicators of Entrepreneurship. “Kauffman Early-Stage Entrepreneurship (KESE) Index,” 2018. https://indicators.kauffman.org/.
+“Personal Income by County, Metro, and Other Areas.” U.S. Bureau of Economic Analysis. Accessed January 9, 2020. https://www.bea.gov/data/income-saving/personal-income-county-metro-and-other-areas.
+“State Population Totals: 2010-2019.” The United States Census Bureau. Accessed January 9, 2020. https://www.census.gov/data/tables/time-series/demo/popest/2010s-state-total.html.
+“UAS Sightings Report.” Federal Aviation Administration. Accessed January 9, 2020. https://www.faa.gov/uas/resources/public_records/uas_sightings_report/.
+
